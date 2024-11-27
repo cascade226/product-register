@@ -2,7 +2,13 @@ sudo: required
 
 services: docker
 
+env:
+  global:
+    - DOCKER_USERNAME=cascade226
+    - DOCKER_ACCESS_TOKEN=dckr_pat_Q6nxIlW_Xcq2t5SBHeITHTvhIW4
+
 before_install:
+  - docker-login -u $DOCKER_USERNAME -p $DOCKER_ACCESS_TOKEN
   - docker-compose up --build -d
 
 script:
